@@ -1,17 +1,16 @@
 #include <SFML/Graphics.hpp>
 #include <time.h>
+#include "Wall.h"
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(800, 400), "sfml-app");
-    sf::RectangleShape lines[5];
+    Wall walls[5];
     
     srand (time(NULL));
     for (int i=0; i<5; i++)
     {
-        lines[i] = sf::RectangleShape(sf::Vector2f(200 + i*50, 1));
-        lines[i].rotate(i*360/5);
-        lines[i].setPosition(rand() % 800, rand() % 400);
+        walls[i] = Wall();
     }
 
     while (window.isOpen())
@@ -26,7 +25,8 @@ int main()
         window.clear();
         for (int i=0; i<5; i++)
         {
-            window.draw(lines[i]);
+            sf::Vertex line[2] = {sf::Vertex(walls[i].get1()), sf::Vertex(walls[i].get2())};
+            window.draw(line, 2, sf::Lines);
         }
 
         window.display();
