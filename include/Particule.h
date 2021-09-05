@@ -1,9 +1,8 @@
 #ifndef PARTICULE_H
 #define PARTICULE_H
 
+#include "Ray.h"
 #include <SFML/Graphics.hpp>
-
-class Ray {};
 
 class Particule {
     public:
