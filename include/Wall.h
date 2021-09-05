@@ -1,3 +1,6 @@
+#ifndef WALL_H
+#define WALL_H
+
 #include <SFML/Graphics.hpp>
 
 class Wall
@@ -15,3 +18,4 @@ class Wall
     int m_x2, m_y2;
 };
 
+#endif
