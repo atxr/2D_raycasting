@@ -9,9 +9,9 @@ float size(sf::Vector2f v)
 Particule::Particule() : Particule(400,200) {}
 Particule::Particule(int x, int y) : m_x(x), m_y(y) 
 {
-    for (int i=0; i<10; i++)
+    for (int i=0; i<N_RAYS; i++)
     {
-        m_rays[i] = Ray(36*i);
+        m_rays[i] = Ray(360*i/N_RAYS);
     }
 }
 
@@ -33,7 +33,7 @@ void Particule::draw(Wall walls[5], sf::RenderWindow *p_window)
 
     sf::Vector2f origin = getPos() + sf::Vector2f(4,4);
 
-    for (int i=0; i<10; i++)
+    for (int i=0; i<N_RAYS; i++)
     {   
         float length(-1);
         for (int j=0; j<5; j++)

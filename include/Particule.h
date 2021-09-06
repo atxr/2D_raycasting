@@ -4,6 +4,8 @@
 #include "Ray.h"
 #include <SFML/Graphics.hpp>
 
+static int const N_RAYS = 1000;
+
 class Particule {
     public:
     Particule();
@@ -15,7 +17,7 @@ class Particule {
 
     private:
     int m_x, m_y;
-    Ray m_rays[10];
+    Ray m_rays[N_RAYS];
 };
 
 #endif

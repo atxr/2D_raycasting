@@ -38,7 +38,7 @@ void Ray::draw(sf::Vector2f origin, float length, sf::RenderWindow *p_window)
 {
     sf::RectangleShape line = sf::RectangleShape(sf::Vector2f(length, 1));
     line.setPosition(origin);
-    line.setFillColor(sf::Color::Yellow);
+    line.setFillColor(sf::Color(235, 200, 61, 100));
 
     line.rotate(m_theta);
     p_window->draw(line);
