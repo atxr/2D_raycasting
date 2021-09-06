@@ -25,7 +25,7 @@ sf::Vector2f Ray::check(sf::Vector2f origin, Wall *p_wall)
     }
 
     float t = ((x1 - x3)*(y3 - y4) - (y1 - y3)*(x3 - x4))/den;
-    float u = ((x2 - x1)*(y1 - y3) - (y2 - y1)*(x2 - x3))/den;
+    float u = ((x2 - x1)*(y1 - y3) - (y2 - y1)*(x1 - x3))/den;
     if (t>0 && u>0 && u<1)
     {
         return sf::Vector2f(x1 + t*(x2-x1), y1 + t*(y2-y1));

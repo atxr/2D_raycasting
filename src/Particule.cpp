@@ -39,9 +39,13 @@ void Particule::draw(Wall walls[5], sf::RenderWindow *p_window)
         for (int j=0; j<5; j++)
         {
             sf::Vector2f collision = m_rays[i].check(origin, &walls[j]);
-            if (collision != sf::Vector2f(0,0) && (length == -1 || length > size(collision-origin)))
+            if (collision != sf::Vector2f(0,0))
             {
-                length = size(collision - origin);
+                // update length of the ray
+                if (length < 0 || length > size(collision-origin))
+                {
+                    length = size(collision - origin);
+                }
             }
         }
 

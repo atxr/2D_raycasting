@@ -33,6 +33,15 @@ int main()
         {
             sf::Vertex line[2] = {sf::Vertex(walls[i].get1()), sf::Vertex(walls[i].get2())};
             window.draw(line, 2, sf::Lines);
+            sf::CircleShape p1 = sf::CircleShape(2);
+            p1.setOrigin(1,1);
+            p1.setPosition(walls[i].get1());
+            sf::CircleShape p2 = sf::CircleShape(2);
+            p2.setOrigin(1,1);
+            p2.setPosition(walls[i].get2());
+            window.draw(p1);
+            window.draw(p2);
+
         }
 
         // if mouse is pressed, move particule
