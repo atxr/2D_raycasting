@@ -1,4 +1,10 @@
 #include "Particule.h"
+#include <math.h>
+
+float size(sf::Vector2f v)
+{
+    return sqrt(pow(v.x, 2) + pow(v.y, 2));
+}
 
 Particule::Particule() : Particule(400,200) {}
 Particule::Particule(int x, int y) : m_x(x), m_y(y) 
@@ -29,13 +35,16 @@ void Particule::draw(Wall walls[5], sf::RenderWindow *p_window)
 
     for (int i=0; i<10; i++)
     {   
+        float length(-1);
         for (int j=0; j<5; j++)
         {
-            sf::Vector2f collsion = m_rays[i].check(origin, &walls[j]);
-            if (collsion != sf::Vector2f(0,0))
+            sf::Vector2f collision = m_rays[i].check(origin, &walls[j]);
+            if (collision != sf::Vector2f(0,0) && (length == -1 || length > size(collision-origin)))
             {
-                m_rays[i].draw(origin, collsion, p_window);
+                length = size(collision - origin);
             }
         }
+
+        m_rays[i].draw(origin, length, p_window);
     }
 }
