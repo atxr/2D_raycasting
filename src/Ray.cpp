@@ -37,9 +37,9 @@ sf::Vector2f Ray::check(sf::Vector2f origin, Wall *p_wall)
     return sf::Vector2f(0,0);
 }
 
-void Ray::draw(sf::Vector2f origin, sf::RenderWindow *p_window)
+void Ray::draw(sf::Vector2f origin, sf::Vector2f collision, sf::RenderWindow *p_window)
 {
-    sf::RectangleShape line = sf::RectangleShape(sf::Vector2f(20,1));
+    sf::RectangleShape line = sf::RectangleShape(sf::Vector2f(size(collision - origin), 1));
     line.setPosition(origin);
     line.setFillColor(sf::Color::Yellow);
     line.rotate(m_theta);

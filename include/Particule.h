@@ -11,7 +11,7 @@ class Particule {
 
     void update(sf::Vector2i mousePos);
     sf::Vector2f getPos();
-    void draw(sf::RenderWindow *window);
+    void draw(Wall walls[5], sf::RenderWindow *window);
 
     private:
     int m_x, m_y;

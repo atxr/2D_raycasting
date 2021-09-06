@@ -40,7 +40,7 @@ int main()
         {
             particule.update(sf::Mouse::getPosition(window));
         }
-        particule.draw(&window);
+        particule.draw(walls, &window);
 
         window.display();
     }
